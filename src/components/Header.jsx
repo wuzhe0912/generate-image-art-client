@@ -2,22 +2,30 @@ import { useState } from 'react';
 
 const Header = ({ setListImages, setIsLoading, isLoading }) => {
   const [prompt, setPrompt] = useState('');
+  const postOptions = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       setIsLoading(true);
-      const url = 'http://localhost:5500/openai/images';
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+      let url =
+        process.env.NODE_ENV === 'production'
+          ? `${process.env.PROD_URL}/openai/images`
+          : 'http://localhost:5500/openai/images';
+      let options = {
+        ...postOptions,
         body: JSON.stringify({
           prompt,
         }),
-      });
+      };
+
+      const response = await fetch(url, options);
       const imageData = await response.json();
       setListImages(imageData.data);
     } catch (error) {
