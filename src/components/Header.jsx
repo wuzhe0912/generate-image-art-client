@@ -15,9 +15,10 @@ const Header = ({ setListImages, setIsLoading, isLoading }) => {
     try {
       setIsLoading(true);
       let url =
-        process.env.NODE_ENV === 'production'
-          ? `${process.env.PROD_URL}/openai/images`
+        import.meta.env.VITE_NODE_ENV === 'production'
+          ? `${import.meta.env.VITE_PROD_URL}/openai/images`
           : 'http://localhost:5500/openai/images';
+
       let options = {
         ...postOptions,
         body: JSON.stringify({
