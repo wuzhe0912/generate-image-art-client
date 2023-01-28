@@ -10,7 +10,7 @@ const routes = require('./routes/api');
 app.use(cors());
 // parse application/json
 app.use(express.json());
-// parse application/x-www-form-urlencoded
+// 自動將 request 中的 URL-encoded 格式資料解析到 req.body，常見於 <form> 的 POST 資料
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/openai', routes);
