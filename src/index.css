@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* setting all text color to gray-500 */
+html, body {
+  @apply text-gray-500;
+}

@@ -1,10 +1,12 @@
 import Header from './components/Header';
+import ImageResult from './components/ImageResult';
 
 function App() {
   return (
-    <div>
+    <main className='app'>
       <Header />
-    </div>
+      <ImageResult />
+    </main>
   );
 }
 
