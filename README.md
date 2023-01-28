@@ -1,10 +1,6 @@
-# Generate Image Art
+# Generate Image Art Client
 
 ## Usage
 
-### Backend
-
-- Node.js(express)
-- OpenAI API
-
-### Frontend
+- React
+- TailwindCSS
